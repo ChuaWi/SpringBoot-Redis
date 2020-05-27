@@ -1,30 +1,30 @@
-package com.cw.redis.domain;
+package com.cw.redis.entity;
 
 import java.io.Serializable;
 
 /**
- * @author
+ * @author XiaoChai
  * @date 2020-05-27
  */
 
-public class City implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID = -1L;
 
     /**
-     * 序号
+     * 用户ID
      */
     private Long id;
 
     /**
-     * 城市编号
+     * 学号
      */
-    private Long cityId;
+    private Long userId;
 
     /**
-     * 城市名称
+     * 用户名
      */
-    private String cityName;
+    private String userName;
 
     /**
      * 描述
@@ -39,20 +39,20 @@ public class City implements Serializable {
         this.id = id;
     }
 
-    public Long getCityId() {
-        return cityId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setCityId(Long cityId) {
-        this.cityId = cityId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getCityName() {
-        return cityName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getDescription() {
@@ -65,10 +65,10 @@ public class City implements Serializable {
 
     @Override
     public String toString() {
-        return "City{" +
+        return "User{" +
                 "id=" + id +
-                ", cityId=" + cityId +
-                ", cityName='" + cityName + '\'' +
+                ", userId=" + userId +
+                ", userName='" + userName + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cw.redis.dao.CityDao">
-	<resultMap id="BaseResultMap" type="com.cw.redis.domain.City">
+<mapper namespace="com.cw.redis.dao.UserDao">
+	<resultMap id="BaseResultMap" type="com.cw.redis.entity.User">
 		<result column="id" property="id" />
-		<result column="city_id" property="cityId" />
-		<result column="city_name" property="cityName" />
+		<result column="user_id" property="userId" />
+		<result column="user_name" property="userName" />
 		<result column="description" property="description" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		id, city_id, city_name, description
+		id, user_id, user_name, description
 	</sql>
 
 	<select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Long">
 		select
 		<include refid="Base_Column_List" />
-		from city
+		from redis_user
 		where id = #{id}
 	</select>
 
-	<delete id="deleteCity" parameterType="java.lang.Long">
+	<delete id="deleteUser" parameterType="java.lang.Long">
 		delete from
-		city
+		redis_user
 		where
 		id = #{id}
 	</delete>
