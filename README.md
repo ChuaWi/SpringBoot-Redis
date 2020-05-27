@@ -1,5 +1,6 @@
 # SpringBoot封装RedisTemplate实现Redis数据缓存
 **Redis**是一个开源的内存数据结构存储，用作数据库，缓存和消息代理。以（key,value）的形式存储数据的数据库，是当前互联网世界最为流行的[ NoSQL](https://baike.baidu.com/item/NoSQL/8828247?fr=aladdin)（Not Only SQL）数据库。主要用Redis实现缓存数据的存储，可以设置过期时间。适合高频读写、临时存储的数据。
+
 Redis 可以存储键与5种不同数据结构类型之间的映射，这5种数据结构类型分别为String（字符串）、List（列表）、Set（集合）、Hash（散列）和 Zset（有序集合）。
 | 结构类型 | 结构存储的值 | 结构的读写能力 |
 |--|--|--|
@@ -11,10 +12,10 @@ Redis 可以存储键与5种不同数据结构类型之间的映射，这5种数
 <code>RedisTemplate</code>中定义了对五种数据结构操作
 
 > **redisTemplate.opsForValue(); //操作字符串
-redisTemplate.opsForList(); //操作列表
-redisTemplate.opsForSet(); //操作集合
-redisTemplate.opsForHash(); //操作散列
-redisTemplate.opsForZSet(); //操作有序集合**
+> redisTemplate.opsForList(); //操作列表
+> redisTemplate.opsForSet(); //操作集合
+> redisTemplate.opsForHash(); //操作散列
+> redisTemplate.opsForZSet(); //操作有序集合**
 
 点击这里>[查看RedisTemplate详细数据结构](https://www.jianshu.com/p/7bf5dc61ca06/)
 ## 实现Redis数据缓存
@@ -99,7 +100,7 @@ public interface UserService {
 ```
 **5.业务逻辑实现类**
 ```java
-   /**
+    /**
      * 查询用户逻辑：
      * 如果缓存存在，从缓存中获取用户信息
      * 如果缓存不存在，从DB中获取用户信息，然后插入缓存
@@ -153,7 +154,7 @@ public interface UserService {
 ```
 **6.请求方法**
 ```java
-	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
     public User findOneUser(@PathVariable("id") Long id) {
         return userService.findUserById(id);
     }
@@ -163,7 +164,9 @@ public interface UserService {
     }
 ```
 **下面进行测试，启动项目前，需要先连接Redis服务[点击这里>查看如何连接Redis服务](https://blog.csdn.net/weixin_44316527/article/details/106365859)
+
 然后使用[点击这里下载>postman](https://www.postman.com)测试<font color="red">api/user/1</font>接口**
+
 1.如果缓存不存在，从数据库中查询用户信息，然后插入缓存，缓存有效时间30秒
 
 <font color=green>**GET**</font> http://127.0.0.1:8080/api/user/1
@@ -197,4 +200,5 @@ public interface UserService {
 ```java
 2020-05-27 17:32:20.210  INFO 5880 --- [nio-8080-exec-4] c.cw.redis.service.impl.UserServiceImpl  : UserServiceImpl.deleteUser() : 从 DB 中删除用户ID >> 1
 ```
+
 点击这里>[Github项目源码地址-SpringBoot封装RedisTemplate实现Redis数据缓存](https://github.com/ChuaWi/SpringBoot-Redis)
