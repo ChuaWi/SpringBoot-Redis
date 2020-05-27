@@ -12,11 +12,15 @@ Redis 可以存储键与5种不同数据结构类型之间的映射，这5种数
 
 <code>RedisTemplate</code>中定义了对五种数据结构操作
 
-> **redisTemplate.opsForValue(); //操作字符串
+> redisTemplate.opsForValue(); //操作字符串
+
 > redisTemplate.opsForList(); //操作列表
+
 > redisTemplate.opsForSet(); //操作集合
+
 > redisTemplate.opsForHash(); //操作散列
-> redisTemplate.opsForZSet(); //操作有序集合**
+
+> redisTemplate.opsForZSet(); //操作有序集合
 
 点击这里>[查看RedisTemplate详细数据结构](https://www.jianshu.com/p/7bf5dc61ca06/)
 ## 实现Redis数据缓存
