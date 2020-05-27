@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 查询用户逻辑：
-     * 如果缓存存在，从缓存中获取用户信息
-     * 如果缓存不存在，从DB中获取用户信息，然后插入缓存
+     * 如果缓存存在，从缓存中查询用户信息
+     * 如果缓存不存在，从DB中查询用户信息，然后插入缓存，缓存有效时间30秒
      */
     public User findUserById(Long id) {
         // 从缓存中获取用户信息
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
         if (hasKey) {
             long start = System.currentTimeMillis();
             User user = operations.get(key);
-            LOGGER.info("UserServiceImpl.findUserById() : 从缓存中获取用户 >> " + user.toString());
+            LOGGER.info("UserServiceImpl.findUserById() : 从缓存中查询用户 >> " + user.toString());
             long end = System.currentTimeMillis();
             LOGGER.info("查询Redis花费的时间是"+(end-start)+" ms");
             return user;
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
             User user = userDao.findById(id);
             // 插入缓存，缓存有效时间30秒
             operations.set(key, user, 30, TimeUnit.SECONDS);
-            LOGGER.info("UserServiceImpl.findUserById() : 从 DB 中获取用户 >> " + user.toString());
+            LOGGER.info("UserServiceImpl.findUserById() : 从 DB 中查询用户 >> " + user.toString());
             long end = System.currentTimeMillis();
             LOGGER.info("查询DB花费的时间是"+(end-start)+" ms");
             return user;
