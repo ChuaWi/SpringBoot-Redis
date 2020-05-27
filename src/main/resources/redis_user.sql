@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS  `redis_user`;
 CREATE TABLE `redis_user` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '序号',
-  `user_id` int(10) unsigned  NOT NULL COMMENT '用户编号',
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+  `user_id` int(10) unsigned  NOT NULL COMMENT '学号',
   `user_name` varchar(25) DEFAULT NULL COMMENT '用户名',
   `description` varchar(25) DEFAULT NULL COMMENT '描述',
   PRIMARY KEY (`id`)
