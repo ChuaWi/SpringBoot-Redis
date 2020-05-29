@@ -168,6 +168,7 @@ public interface UserService {
         userService.deleteUser(id);
     }
 ```
+
 **下面进行测试，启动项目前，需要先连接Redis服务[点击这里>查看如何连接Redis服务](https://blog.csdn.net/weixin_44316527/article/details/106365859)
 
 然后使用[点击这里下载>postman](https://www.postman.com)测试<font color="red">api/user/1</font>接口**
@@ -176,6 +177,7 @@ public interface UserService {
 
 <font color=green>**GET**</font> http://127.0.0.1:8080/api/user/1
 
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200529171056340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxNjUyNw==,size_16,color_FFFFFF,t_70)
 
 
@@ -183,6 +185,7 @@ public interface UserService {
 2020-05-27 17:32:00.129  INFO 5880 --- [nio-8080-exec-1] c.cw.redis.service.impl.UserServiceImpl  : UserServiceImpl.findUserById() : 从 DB 中查询用户 >> User{id=1, userId=12305, userName='蔡小柴', description='就读于国立中央大学资讯工程'}
 2020-05-27 17:32:00.129  INFO 5880 --- [nio-8080-exec-1] c.cw.redis.service.impl.UserServiceImpl  : 查询DB花费的时间是251 ms
 ```
+
 2.如果缓存存在，从缓存中查询用户信息
 在缓存时间（30秒）内，再次访问
 
@@ -192,6 +195,7 @@ public interface UserService {
 2020-05-27 17:32:07.026  INFO 5880 --- [nio-8080-exec-2] c.cw.redis.service.impl.UserServiceImpl  : UserServiceImpl.findUserById() : 从缓存中查询用户 >> User{id=1, userId=12305, userName='蔡小柴', description='就读于国立中央大学资讯工程'}
 2020-05-27 17:32:07.026  INFO 5880 --- [nio-8080-exec-2] c.cw.redis.service.impl.UserServiceImpl  : 查询Redis花费的时间是7 ms
 ```
+
 <table><tr><td bgcolor=#D1EEEE><font color=blue>可以看到从缓存中直接查询用户信息的时间要比从数据库中快很多。</font></td></tr></table>
 
 3.如果缓存存在，从缓存中删除用户信息
@@ -201,6 +205,7 @@ public interface UserService {
 ```java
 2020-05-27 17:32:13.251  INFO 5880 --- [nio-8080-exec-3] c.cw.redis.service.impl.UserServiceImpl  : UserServiceImpl.deleteUser() : 从缓存中删除用户ID >> 1
 ```
+
 4.如果缓存不存在，从数据库中删除用户信息
 
 <font color=red>**DELETE**</font> http://127.0.0.1:8080/api/user/1
