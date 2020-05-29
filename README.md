@@ -178,6 +178,7 @@ public interface UserService {
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200529170554831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxNjUyNw==,size_16,color_FFFFFF,t_70)
 
+
 ```java
 2020-05-27 17:32:00.129  INFO 5880 --- [nio-8080-exec-1] c.cw.redis.service.impl.UserServiceImpl  : UserServiceImpl.findUserById() : 从 DB 中查询用户 >> User{id=1, userId=12305, userName='蔡小柴', description='就读于国立中央大学资讯工程'}
 2020-05-27 17:32:00.129  INFO 5880 --- [nio-8080-exec-1] c.cw.redis.service.impl.UserServiceImpl  : 查询DB花费的时间是251 ms
