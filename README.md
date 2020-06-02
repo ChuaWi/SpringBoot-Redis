@@ -23,7 +23,9 @@ Redis 可以存储键与5种不同数据结构类型之间的映射，这5种数
 > redisTemplate.opsForZSet(); //操作有序集合
 
 点击这里>[查看RedisTemplate详细数据结构](https://www.jianshu.com/p/7bf5dc61ca06/)
-## 实现Redis数据缓存
+
+## SpringBoot封装RedisTemplate实现Redis数据缓存步骤
+
 **1.引入Redis、Mybatis依赖**
 ```java
 <!-- SpringBoot Redis 依赖 -->
